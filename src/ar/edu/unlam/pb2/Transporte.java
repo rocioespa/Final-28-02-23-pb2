@@ -9,13 +9,17 @@ public abstract class Transporte {
 	protected Double peso_max;
 	protected Double volumen_max;
 	protected Set<String> destino;
-	protected Double peso_actual = 0.0;
-	protected Double vol_actual = 0.0;
+	protected Set<Paquete> paquetesTransportados;
+	protected Double peso_actual;
+	protected Double vol_actual;
 	
 	public Transporte(String patente) {
 		super();
 		this.patente = patente;
 		this.destino = new HashSet<>();
+		this.paquetesTransportados = new HashSet<>();
+		this.peso_actual = 0.0;
+		this.vol_actual = 0.0;
 	}
 	public String getPatente() {
 		return patente;
@@ -56,6 +60,15 @@ public abstract class Transporte {
 	}
 	public void setDestino(Set<String> destino) {
 		this.destino = destino;
+	}
+	
+	
+	
+	public Set<Paquete> getPaquetesTransportados() {
+		return paquetesTransportados;
+	}
+	public void setPaquetesTransportados(Set<Paquete> paquetesTransportados) {
+		this.paquetesTransportados = paquetesTransportados;
 	}
 	@Override
 	public int hashCode() {
